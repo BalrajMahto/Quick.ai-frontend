@@ -2,19 +2,18 @@ import { Edit, Sparkles } from 'lucide-react'
 import React, { useState } from 'react'
 
 const WriteArticle = () => {
-
-   const articleLength = [
-    { length: 800, text: 'Short(500-800 words)' },
-    { length: 1200, text: 'Medium(800-1200 words)' },
-    { length: 1600, text: 'Long(1200+ words)' },
+  const articleLength = [
+    { length: 800, text: 'Short (500–800 words)' },
+    { length: 1200, text: 'Medium (800–1200 words)' },
+    { length: 1600, text: 'Long (1200+ words)' },
   ]
+
   const [selectedLength, setSelectedLength] = useState(articleLength[0])
   const [input, setInput] = useState('')
 
   const onSubmitHandler = async (e) => {
     e.preventDefault()
   }
- 
 
   return (
     <div className='h-full overflow-y-scroll p-6 flex items-start flex-wrap gap-4 text-slate-700'>
@@ -30,11 +29,11 @@ const WriteArticle = () => {
           value={input}
           type='text'
           className='w-full p-2 px-3 mt-2 outline-none text-sm rounded-md border border-gray-300'
-          placeholder='The future of article intelligence is ...'
+          placeholder='The future of artificial intelligence is ...'
           required
         />
         <p className='mt-4 text-sm font-medium'>Article Length</p>
-        <div className='mt-3 flex gap-3 flex-wrap sm:max-w-9/11 '>
+        <div className='mt-3 flex gap-3 flex-wrap'>
           {articleLength.map((item, index) => (
             <span
               key={index}
@@ -55,6 +54,21 @@ const WriteArticle = () => {
           Generate Article
         </button>
       </form>
+
+      {/* right column */}
+      <div className='w-full max-w-lg p-4 bg-white rounded-lg flex flex-col border border-gray-200 min-h-96 max-h-[600px]'>
+        <div className='flex items-center gap-3'>
+          <Edit className='w-6 h-8 text-[#4A7AFF]' />
+          <h1 className='text-xl font-semibold'>Generated Content</h1>
+        </div>
+
+        <div className='flex-1 flex justify-center items-center'>
+          <div className='text-sm flex flex-col items-center gap-5 text-gray-400'>
+            <Edit className='w-10 h-10' />
+            <p>Enter a topic and click "Generate Article" to get started</p>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }
