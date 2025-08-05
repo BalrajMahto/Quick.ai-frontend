@@ -20,7 +20,7 @@ const WriteArticle = () => {
       {/* left column */}
       <form onSubmit={onSubmitHandler} className='w-full max-w-lg p-4 bg-white rounded-lg border border-gray-200'>
         <div className='flex items-center gap-3'>
-          <Sparkles className='w-6 text-[#4A7AFF]' />
+          <Sparkles className='w-6 text-[#4A7AFF] '/>
           <h1 className='text-xl font-semibold'>Article Configuration</h1>
         </div>
         <p className='mt-6 text-sm font-medium'>Article Topic</p>
