@@ -1,15 +1,54 @@
-import { useUser } from '@clerk/clerk-react'
+import { useAuth, useUser } from '@clerk/clerk-react'
 import React, { useEffect, useState } from 'react'
 import {dummyPublishedCreationData} from "../assets/assets"
 import { Heart } from 'lucide-react'
+import axios from 'axios'
+import { toast } from 'react-hot-toast'
+
+axios.defaults.baseURL = import.meta.env.VITE_BASE_URL;
 
 const Community = () => {
   const [creations, setCreations] = useState([])
   const { user } = useUser()
+  const [Loading, setLoading] = useState(false)
+  const {getToken } = useAuth()
 
   const fetchCreations = async () => {
-    setCreations(dummyPublishedCreationData)
+    try {
+      setLoading(true);
+      const { data } = await axios.get('/api/ai/get-published-creations', {
+        headers: { Authorization: `Bearer ${await getToken()}` },
+    });
+
+    if (data.success) {
+      setCreations(data.creations);
+    } else {
+      toast.error(data.message || 'Failed to fetch creations');
+    }
+  } catch (error) {
+    console.error('Error fetching creations:', error);
+    toast.error(error.response?.data?.message || 'An error occurred while fetching creations.');
+  } finally {
+    setLoading(false);
   }
+}
+
+  const imageLikeToggle = async (id) => {
+    try {
+        const { data } = await axios.post('/api/ai/toggle-like-creations', { id }, {
+            headers: { Authorization: `Bearer ${await getToken()}` },
+        });
+        if (data.success) {
+            toast.success(data.message || 'Like toggled successfully');
+            await fetchCreations(); // Refresh creations after toggling like
+        } else {
+            toast.error(data.message || 'Failed to toggle like');
+        }
+    } catch (error) {
+        console.error('Error toggling like:', error);
+        toast.error(error.response?.data?.message || 'An error occurred while toggling like');
+    }
+}
 
   useEffect(() => {
     if (user) {
@@ -17,7 +56,7 @@ const Community = () => {
     }
   }, [user])
 
-  return (
+  return !Loading ? (
     <div className='flex-1 h-full flex flex-col gap-4 p-6'>
       <h1 className='text-xl font-semibold text-slate-700'>Creations</h1>
       <div className='bg-white h-full rounded-xl overflow-y-scroll'>
@@ -28,12 +67,16 @@ const Community = () => {
             <p className='text-sm ml-2 hidden group-hover:block'>{item.prompt}</p>
             <div className='flex gap-1 items-center'>
               <p>{item.likes.length}</p>
-              <Heart className={`min-w-5 h-5 hover:scale-110 cursor-pointer ${item.likes.includes(user.id)? 'fill-red-500 text-red-600' : 'text-white'} `}/>
+              <Heart onClick={()=>imageLikeToggle(item.id)} className={`min-w-5 h-5 hover:scale-110 cursor-pointer ${item.likes.includes(user.id)? 'fill-red-500 text-red-600' : 'text-white'} `}/>
             </div>
             </div>
           </div>
         ))}
       </div>
+    </div>
+  ):(
+    <div className='flex justify-center items-center h-full not-first-of-type:'>
+   <span className='w-4 h-4 my-1 rounded-full border-2 border-t-transparent animate-spin'></span>
     </div>
   )
 }
