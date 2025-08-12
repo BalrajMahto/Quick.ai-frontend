@@ -1,75 +1,49 @@
-# Quick AI Website
+# 🚀 Quick.ai
 
-🚀 **Quick AI** is an AI-powered platform that enables users to generate creative content, ideas, and solutions in seconds.  
-From blogs and marketing content to quick answers and brainstorming sessions, Quick AI streamlines the process of turning ideas into words.  
-
-🌐 **Live Website:** [https://quick-ai-website.vercel.app/]
-
----
-
-## 📌 Overview
+Quick.ai is an AI-powered SaaS web application designed to supercharge your content creation workflow.  
+From generating stunning images and blog titles to removing backgrounds and reviewing resumes — Quick.ai combines multiple AI tools into one seamless platform.
 
 In today's fast-paced digital world, **speed and creativity** are crucial. People often spend hours brainstorming, drafting, and editing — which delays execution.  
 Quick AI solves this by providing **instant, AI-generated responses** tailored to the user’s needs, so you can spend less time thinking and more time doing.
-
-With Quick AI, you can:
-- **Generate blog articles** within seconds.
-- **Create engaging social media content** without writer’s block.
-- **Brainstorm marketing ideas** instantly.
-- **Get quick answers** for research and inspiration.
-
 ---
 
-## 🎯 Problem Statement
+## 🌟 Features
 
-Many creators, marketers, and professionals face:
-- **Writer’s block** when starting a project.
-- **Time pressure** in producing quality content.
-- **Limited access** to AI-powered tools without a complex setup.
-
----
-
-## 💡 Solution
-
-Quick AI addresses these challenges by:
-- Providing an **easy-to-use interface** that works on any device.
-- Offering **ready-to-use templates** for blogs, ads, and brainstorming.
-- Utilizing **AI-powered content generation** for speed and quality.
-- Allowing **custom input** so you can guide the AI’s output.
-
-✅ **Impact**:  
-By using Quick AI, individuals and businesses can save **up to 80% of content creation time**, reduce creative burnout, and consistently produce high-quality material.
+- **AI Article Writer** – Generate high-quality, engaging articles with the Gemini API.
+- **Blog Title Generator** – Create catchy and relevant blog titles instantly.
+- **AI Image Generation** – Stunning visuals powered by AI (Clipdrop API).
+- **Background Removal** – Effortlessly remove image backgrounds using AI.
+- **Object Removal** – Clean up images by removing unwanted objects.
+- **Resume Reviewer** – Get AI-powered feedback to improve your CV.
+- **Subscription Management** – Premium & free tiers handled with Clerk.
+- **Authentication** – Secure login, registration, and user session management.
+- **Community Page** – Share and explore AI-generated creations.
+- **Responsive Design** – Optimized for mobile, tablet, and desktop.
 
 ---
 
 ## 🛠 Tech Stack
 
-**Frontend:**  
-- React.js 
-- Tailwind CSS for styling  
-- luicid react
+**Frontend:**
+- [React.js](https://reactjs.org/) – UI framework
+- [Tailwind CSS](https://tailwindcss.com/) – Styling
+- [Clerk](https://clerk.com/) – Authentication & Subscription
 
-**Backend & AI Integration:**  
-- Node.js with Express.js API  
-- GEMINI API for AI-powered responses  
+**Backend:**
+- [Express.js](https://expressjs.com/) – Server framework
+- [PostgreSQL](https://www.postgresql.org/) with [Neon](https://neon.tech/) – Database
+- [Cloudinary](https://cloudinary.com/) – Image hosting
+- [Gemini API](https://ai.google/) – AI content generation
+- [Clipdrop API](https://clipdrop.co/) – Image manipulation
+
+---
 
 **Hosting & Deployment:**  
-- Vercel for live hosting  and render for backend deployment
+- Vercel for frontend live hosting  
+- Render for backend hosting
 
----
+## ⚙️ Installation & Setup
 
-## 📂 Features
-
-- **AI Blog Writer**: Create blog posts instantly by specifying the topic and style.
-- **Community Page**: Browse and share AI-generated images & ideas.
-- **Custom Prompt Tool**: Enter your own prompts for AI to process.
-- **Responsive UI**: Works on desktop, tablet, and mobile seamlessly.
-
----
-
-## 🚀 Getting Started
-
-### 1️⃣ Clone the Repository
-```bash
+### 1️⃣ Clone the repository
 git clone https://github.com/BalrajMahto/Quick.ai-frontend
-cd quick-ai-frontend
+cd Quick.ai-frontend
