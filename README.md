@@ -25,6 +25,7 @@ Quick AI solves this by providing **instant, AI-generated responses** tailored t
 ## 🛠 Tech Stack
 
 **Frontend:**
+
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
 ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 ![Clerk](https://img.shields.io/badge/Clerk-3B82F6?style=for-the-badge&logo=clerk&logoColor=white)
@@ -34,6 +35,7 @@ Quick AI solves this by providing **instant, AI-generated responses** tailored t
 - [Clerk](https://clerk.com/) – Authentication & Subscription
 
 **Backend:**
+
 ![Express.js](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
 ![Neon](https://img.shields.io/badge/Neon-00E599?style=for-the-badge&logo=neon&logoColor=white)
